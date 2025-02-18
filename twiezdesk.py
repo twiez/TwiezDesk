@@ -1,15 +1,16 @@
+# >:
+
 import os
 import shutil
 import time
 
-# Beyaz renk için ANSI escape kodu
+
 WHITE = "\033[97m"
-RESET = "\033[0m"  # Rengi sıfırlamak için
+RESET = "\033[0m"  
 
 # Kullanıcının masaüstü yolu
 DESKTOP_PATH = os.path.join(os.path.expanduser("~"), "Desktop")
 
-# Dosya kategorileri
 CATEGORIES = {
     "Resimler": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg", ".webp", ".ico", ".tiff"],
     "Videolar": [".mp4", ".mkv", ".avi", ".mov", ".wmv", ".flv", ".webm"],
@@ -33,15 +34,15 @@ CATEGORIES = {
     "Yürütülebilir Dosyalar": [".exe", ".msi", ".bat", ".sh", ".app"],
     "Disk İmajları": [".iso", ".img", ".dmg"],
     "3D Modeller": [".obj", ".stl", ".step", ".dwg", ".dxf", ".fbx", ".blend"],
-    "Diğer": []  # Tanımlanamayan dosyalar buraya gidecek
+    "Diğer": []  #
 }
 
-# Başlık değiştirme
-os.system('title TwiezDesk v1.0')  # Burada istediğiniz başlığı yazabilirsiniz
 
-# ASCII art başlık
+os.system('title TwiezDesk v1.0') 
+
+
 def display_banner():
-    # Terminali temizle
+
     os.system('cls' if os.name == 'nt' else 'clear')
     
     banner = WHITE + r"""
@@ -57,7 +58,7 @@ def display_banner():
                              ░            ░                              
 """ + RESET
     print(banner)
-    time.sleep(2)  # Kullanıcıya Loading ekranı için süre tanıma
+    time.sleep(2) 
 
 # Masaüstünü düzenleme işlevi
 def organize_desktop():
@@ -95,7 +96,7 @@ def move_file(file, category):
     shutil.move(os.path.join(DESKTOP_PATH, file), os.path.join(category_path, file))
     print(WHITE + f"{file} -> {category}/" + RESET)
 
-# Menü
+
 def menu():
     while True:
         print(WHITE + "\n[ + ] github.com/twiez")
@@ -113,7 +114,7 @@ def menu():
         else:
             print("Geçersiz seçim. Lütfen tekrar deneyin.")
 
-# Program başlangıcı
+
 if __name__ == "__main__":
-    display_banner()  # Banner'ı ekrana bas
+    display_banner()  
     menu()
